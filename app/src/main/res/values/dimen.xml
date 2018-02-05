@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standard">16dp</dimen>
+    <dimen name="double_standard">32dp</dimen>
+    <dimen name="lineStandard">4dp</dimen>
+    <dimen name="forBorders">8dp</dimen>
+    <dimen name="textDefault">16sp</dimen>
+    <dimen name="imageHeight">250dp</dimen>
+</resources>

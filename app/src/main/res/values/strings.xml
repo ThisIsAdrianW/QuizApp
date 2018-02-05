@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+    <string name="welcome_text">Welcome to quiz about european architecture</string>
+    <string name="question1">What kind of monument would You find here (click)</string>
+    <string name="question1_answer1">Gasometer</string>
+    <string name="question1_answer2">Galerie Saint Hubert</string>
+    <string name="question1_answer3">Eiffel tower</string>
+    <string name="question1_answer4">Torre de Belém</string>
+    <string name="submitText">Submit answer</string>
+    <string name="question2">What statements are true about this place</string>
+    <string name="question2_answer1">This is Gasometer</string>
+    <string name="question2_answer2">It\'s located in France</string>
+    <string name="question2_answer3">It\'s in city of Vienna</string>
+    <string name="question2_answer4">It\'s has movie theatre inside</string>
+    <string name="question3_question">Type name of country where Wawel Royal Castle is located in</string>
+    <string name="question3_hint">Type in name of country</string>
+    <string name="question4_question">In what city You can find Sansevero Chapel</string>
+    <string name="question4_answer1">Naples</string>
+    <string name="question4_answer2">Rome</string>
+    <string name="question4_answer3">Venice</string>
+    <string name="question4_answer4">Palermo</string>
+    <string name="checkScores">Check Scores</string>
+</resources>
