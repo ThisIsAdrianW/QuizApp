@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     //array for images that will be displayed in ImageView imageNrOne. Hopefully ;-)
-    int[] imageArray = { R.drawable.gaso1, R.drawable.gaso2, R.drawable.gaso3,R.drawable.gaso4 };
+    int[] imageArray = {R.drawable.gaso1, R.drawable.gaso2, R.drawable.gaso3, R.drawable.gaso4};
     // int where i will store Your points ^_^
     int points = 0;
     //here i declared some global variables that we will use later. In first try it was much messier T_T
@@ -27,12 +27,11 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageNrOne;
     Handler handler = new Handler();
     CheckBox checkGaso, checkFrance, checkVienna, checkMovie;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //setting away focus from EditText nameHere
-        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         //Ok, here we will find some important stuff for right answers ^_^
         galerie = findViewById(R.id.galerie);
         nameHere = findViewById(R.id.nameHere);
@@ -46,8 +45,10 @@ public class MainActivity extends AppCompatActivity {
         groupNrOne = findViewById(R.id.groupNrOne);
         groupNrTwo = findViewById(R.id.groupNrTwo);
         //This will change image in ImageView called ImageNrOne every 3 sec. o_O
+        //Solution in based on: https://stackoverflow.com/questions/5167541/how-to-change-images-on-imageview-after-some-interval
         Runnable runnable = new Runnable() {
             int i = 0;
+
             public void run() {
                 imageNrOne.setImageResource(imageArray[i]);
                 i++;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         };
         handler.postDelayed(runnable, 3000);
     }
+
     //intent that displays map for user to show him location :-)
     public void showMapForUser(View view) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -69,39 +71,43 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
     //Now i begin to check questions and add points. First question is for radiobutton
-    private void firstQuestion () {
+    private void firstQuestion() {
         if (galerie.isChecked()) {
             points++;
         }
     }
+
     //Here i will check for answers from checkboxes
-    private void secondQuestion () {
+    private void secondQuestion() {
         if (checkFrance.isChecked()) {
             return;
-        }
-        else if (checkGaso.isChecked() && checkVienna.isChecked() && checkMovie.isChecked()) {
+        } else if (checkGaso.isChecked() && checkVienna.isChecked() && checkMovie.isChecked()) {
             points++;
         }
     }
+
     //function for 3rd question
-    private void thirdQuestion () {
+    private void thirdQuestion() {
         //comparing user input to answer
         if (country.getText().toString().toLowerCase().equals("poland") || country.getText().toString().toLowerCase().equals("polska")) {
             points++;
         }
     }
-    private void fourthQuestion () {
+
+    //function for 4th question
+    private void fourthQuestion() {
         if (naples.isChecked()) {
             points++;
         }
     }
-    public void checkScores (View view) {
+
+    public void checkScores(View view) {
         //ok, so i will check if user provided any name getting text from EditText
         if (nameHere.getText().toString().isEmpty()) {
-            Toast.makeText(getApplicationContext(),"You didn't enter Your name", Toast.LENGTH_SHORT).show();
-        }
-        else {
+            Toast.makeText(getApplicationContext(), "You didn't enter Your name", Toast.LENGTH_SHORT).show();
+        } else {
             String nameOfUser = nameHere.getText().toString();
             firstQuestion();
             secondQuestion();
@@ -117,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
             checkFrance.setChecked(false);
             checkVienna.setChecked(false);
             checkMovie.setChecked(false);
+            //I didn't clear name field on purpose
             country.setText("");
         }
 

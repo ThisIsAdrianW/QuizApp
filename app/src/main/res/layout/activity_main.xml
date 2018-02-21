@@ -4,241 +4,221 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.quizapp.MainActivity"
-    android:background="@color/colorAccent">
+    android:background="@color/colorAccent"
+    tools:context="com.example.android.quizapp.MainActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/forBorders"
                 android:text="@string/welcome_text"
-                android:textSize="@dimen/textDefault"
-                android:paddingLeft="@dimen/forBorders"/>
+                android:textSize="@dimen/textDefault" />
+            <!--
+            This is a thing of nightmares. Yes, EditText with autofocus.
+            The "best" (well, this is my opinion) way to hide this obnoxious keyboard
+            was to add invisible 0 dp LinearLayout. Please give option to hide it
+            in desigh phase in next API T_T
+            solution from: https://stackoverflow.com/questions/1555109/stop-edittext-from-gaining-focus-at-activity-startup
+            -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+
             <EditText
                 android:id="@+id/nameHere"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
                 android:hint="Enter Your name"
-                android:paddingLeft="@dimen/forBorders"/>
+                android:inputType="textPersonName"
+                android:paddingLeft="@dimen/forBorders" />
         </LinearLayout>
-        <View
-            android:paddingTop="@dimen/standard"
-            android:paddingBottom="@dimen/standard"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/lineStandard"
-            android:background="@color/colorPrimary"/>
+
+        <View style="@style/viewStyle" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryLight"
                 android:onClick="showMapForUser"
-                android:textSize="@dimen/textDefault"
                 android:text="@string/question1"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/colorPrimaryLight"/>
+                android:textSize="@dimen/textDefault" />
+
             <RadioGroup
                 android:id="@+id/groupNrOne"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <RadioButton
                     android:id="@+id/gasometer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/textDefault"
-                    android:text="@string/question1_answer1"
-                    android:paddingLeft="@dimen/standard"
-                    android:buttonTint="@color/colorPrimary"/>
+                    style="@style/radioStyleOne"
+                    android:text="@string/question1_answer1" />
+
                 <RadioButton
                     android:id="@+id/galerie"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/question1_answer2"
-                    android:textSize="@dimen/textDefault"
-                    android:paddingLeft="@dimen/standard"
-                    android:buttonTint="@color/colorPrimary"/>
+                    style="@style/radioStyleOne"
+                    android:text="@string/question1_answer2" />
+
                 <RadioButton
                     android:id="@+id/eiffel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/question1_answer3"
-                    android:textSize="@dimen/textDefault"
-                    android:paddingLeft="@dimen/standard"
-                    android:buttonTint="@color/colorPrimary"/>
+                    style="@style/radioStyleOne"
+                    android:text="@string/question1_answer3" />
+
                 <RadioButton
                     android:id="@+id/torre"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/question1_answer4"
-                    android:paddingLeft="@dimen/standard"
-                    android:textSize="@dimen/textDefault"
-                    android:buttonTint="@color/colorPrimary"/>
+                    style="@style/radioStyleOne"
+                    android:text="@string/question1_answer4" />
             </RadioGroup>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <View
-                android:paddingTop="@dimen/standard"
-                android:paddingBottom="@dimen/standard"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/lineStandard"
-                android:background="@color/colorPrimary"/>
+
+            <View style="@style/viewStyle" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/textDefault"
                 android:paddingLeft="@dimen/forBorders"
-                android:text="@string/question2"/>
+                android:text="@string/question2"
+                android:textSize="@dimen/textDefault" />
+
             <ImageView
                 android:id="@+id/imageNrOne"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/imageHeight"
-                android:src="@drawable/gaso1"
+                android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:adjustViewBounds="true"/>
+                android:src="@drawable/gaso1" />
+
             <CheckBox
                 android:id="@+id/checkGasometer"
-                android:layout_marginTop="@dimen/standard"
+                style="@style/checkStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/question2_answer1"
-                android:textSize="@dimen/standard"
-                android:paddingLeft="@dimen/standard"
-                android:saveEnabled="true"
-                android:buttonTint="@color/colorPrimary"/>
+                android:layout_marginTop="@dimen/standard"
+                android:text="@string/question2_answer1" />
+
             <CheckBox
                 android:id="@+id/checkFrance"
+                style="@style/checkStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/question2_answer2"
-                android:textSize="@dimen/standard"
-                android:paddingLeft="@dimen/standard"
-                android:layout_marginTop="@dimen/standard"
-                android:saveEnabled="true"
-                android:buttonTint="@color/colorPrimary"/>
+                android:text="@string/question2_answer2" />
+
             <CheckBox
                 android:id="@+id/checkVienna"
+                style="@style/checkStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/question2_answer3"
-                android:textSize="@dimen/standard"
-                android:paddingLeft="@dimen/standard"
-                android:layout_marginTop="@dimen/standard"
-                android:saveEnabled="true"
-                android:buttonTint="@color/colorPrimary"/>
+                android:text="@string/question2_answer3" />
+
             <CheckBox
                 android:id="@+id/checkMovies"
+                style="@style/checkStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/question2_answer4"
-                android:textSize="@dimen/standard"
-                android:paddingLeft="@dimen/standard"
-                android:layout_marginTop="@dimen/standard"
-                android:saveEnabled="true"
-                android:buttonTint="@color/colorPrimary"/>
+                android:text="@string/question2_answer4" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <View
-                android:paddingTop="@dimen/standard"
-                android:paddingBottom="@dimen/standard"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/lineStandard"
-                android:background="@color/colorPrimary"/>
+
+            <View style="@style/viewStyle" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/question3_question"
-                android:textSize="@dimen/textDefault"/>
+                android:textSize="@dimen/textDefault" />
+
             <EditText
                 android:id="@+id/country"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords"
                 android:hint="@string/question3_hint"
-                android:paddingLeft="@dimen/forBorders"/>
+                android:inputType="textCapWords"
+                android:paddingLeft="@dimen/forBorders" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <View
-                android:paddingTop="@dimen/standard"
-                android:paddingBottom="@dimen/standard"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/lineStandard"
-                android:background="@color/colorPrimary"/>
+
+            <View style="@style/viewStyle" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/textDefault"
-                android:text="@string/question4_question"/>
+                android:text="@string/question4_question"
+                android:textSize="@dimen/textDefault" />
+
             <RadioGroup
                 android:id="@+id/groupNrTwo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <RadioButton
                     android:id="@+id/naples"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/textDefault"
-                    android:text="@string/question4_answer1"
-                    android:paddingLeft="@dimen/standard"
-                    android:buttonTint="@color/colorPrimary"/>
+                    style="@style/radioStyleOne"
+                    android:text="@string/question4_answer1" />
+
                 <RadioButton
                     android:id="@+id/rome"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/question4_answer2"
-                    android:textSize="@dimen/textDefault"
-                    android:paddingLeft="@dimen/standard"
-                    android:buttonTint="@color/colorPrimary"/>
+                    style="@style/radioStyleOne"
+                    android:text="@string/question4_answer2" />
+
                 <RadioButton
                     android:id="@+id/venice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/question4_answer3"
-                    android:textSize="@dimen/textDefault"
-                    android:paddingLeft="@dimen/standard"
-                    android:buttonTint="@color/colorPrimary"/>
+                    style="@style/radioStyleOne"
+                    android:text="@string/question4_answer3" />
+
                 <RadioButton
                     android:id="@+id/palermo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/question4_answer4"
-                    android:paddingLeft="@dimen/standard"
-                    android:textSize="@dimen/textDefault"
-                    android:buttonTint="@color/colorPrimary"/>
+                    style="@style/radioStyleOne"
+                    android:text="@string/question4_answer4" />
             </RadioGroup>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/lineStandard"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorPrimary" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:backgroundTint="@color/colorPrimaryLight"
-                android:text="@string/checkScores"
                 android:onClick="checkScores"
-                android:layout_gravity="center_vertical|center_horizontal"/>
+                android:text="@string/checkScores" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

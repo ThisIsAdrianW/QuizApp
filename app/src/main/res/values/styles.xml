@@ -8,4 +8,28 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="checkStyle">
+        <item name="android:textSize">@dimen/standard</item>
+        <item name="android:saveEnabled">true</item>
+        <item name="android:paddingLeft">@dimen/standard</item>
+        <item name="android:layout_marginTop">@dimen/standard</item>
+        <item name="android:buttonTint">@color/colorPrimary</item>
+    </style>
+
+    <style name="viewStyle">
+        <item name="android:paddingTop">@dimen/standard</item>
+        <item name="android:paddingBottom">@dimen/standard</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/lineStandard</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="radioStyleOne">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/textDefault</item>
+        <item name="android:paddingLeft">@dimen/standard</item>
+        <item name="android:buttonTint">@color/colorPrimary</item>
+    </style>
+
 </resources>
